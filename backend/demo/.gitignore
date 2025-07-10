@@ -4,7 +4,11 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+
 ### STS ###
+
+.backend/demo/src/main/resources/credentials/credentials.json
+
 .apt_generated
 .classpath
 .factorypath

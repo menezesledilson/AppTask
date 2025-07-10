@@ -1,14 +1,14 @@
-# Use uma imagem base com Java (ajuste a versão conforme seu projeto)
-FROM eclipse-temurin:17-jdk-jammy
+# Use uma imagem base do OpenJDK
+FROM openjdk:17-jdk-slim
 
-# Defina o diretório dentro do container
+# Defina o diretório de trabalho no container
 WORKDIR /app
 
-# Copie o arquivo JAR para dentro do container
-COPY target/*.jar app.jar
+# Copie o arquivo JAR para o diretório de trabalho
+COPY target/demo-0.0.1-SNAPSHOT.jar /app/app.jar
 
-# Exponha a porta usada pela aplicação (geralmente 8080)
+# Defina o comando para executar o JAR
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
+# Exponha a porta que a aplicação vai usar
 EXPOSE 8080
-
-# Comando para rodar a aplicação
-ENTRYPOINT ["java", "-jar", "app.jar"]
